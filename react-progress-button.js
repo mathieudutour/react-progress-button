@@ -79,7 +79,7 @@
       this.setState({currentState: 'loading'});
     },
 
-    notloading() {
+    notLoading() {
       this.setState({currentState: ''});
     },
 
