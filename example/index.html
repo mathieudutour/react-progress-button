@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+  <title>react-progress-button example (without JSX)</title>
+  <link rel="stylesheet" href="../react-progress-button.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+    body {
+      background: #eeefef;
+      color: #0099cc;
+    }
+    #button-success {
+      width: 200px;
+      margin: 100px auto;
+    }
+    #button-error {
+      width: 200px;
+      margin: 100px auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="button-success"></div>
+  <div id="button-error"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.12.0/JSXTransformer.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.12.0/react.min.js"></script>
+  <script src="../react-progress-button.js"></script>
+  <script>
+    var ButtonSuccessContainer = React.createClass({
+      displayName: "ButtonSuccessContainer",
+
+      render() {
+        return (
+          React.createElement("div", null,
+            React.createElement(ProgressButton, {ref: "button", onClick: this.handleClick},
+              "Go!"
+            )
+          )
+        );
+      },
+
+      handleClick() {
+        this.refs.button.loading();
+        //make asynchronious call
+        setTimeout(function() {
+          this.refs.button.success();
+        }.bind(this), 3000);
+      }
+    });
+    var ButtonErrorContainer = React.createClass({
+      displayName: "ButtonErrorContainer",
+
+      render() {
+        return (
+          React.createElement("div", null,
+            React.createElement(ProgressButton, {ref: "buttonError", onClick: this.handleClick},
+              "Go!"
+            )
+          )
+        );
+      },
+
+      handleClick() {
+        this.refs.buttonError.loading();
+        //make asynchronious call
+        setTimeout(function() {
+          this.refs.buttonError.error();
+        }.bind(this), 3000);
+      }
+    });
+
+    React.render(React.createElement(ButtonSuccessContainer, null), document.getElementById("button-success"));
+    React.render(React.createElement(ButtonErrorContainer, null), document.getElementById("button-error"));
+  </script>
+</body>
+</html>
