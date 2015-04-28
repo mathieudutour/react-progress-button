@@ -54,7 +54,7 @@ All props are optional.
 
 ##### classNamespace
 
-Namespace for CSS classes, default is `pb` i.e CSS classes are `pb-button`.
+Namespace for CSS classes, default is `pb-` i.e CSS classes are `pb-button`.
 
 ##### durationError
 
