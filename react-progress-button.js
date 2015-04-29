@@ -21,7 +21,7 @@
       type: React.PropTypes.string
     },
 
-    getDefaultProps() {
+    getDefaultProps: function() {
       return {
         classNamespace: 'pb-',
         durationError: 1200,
@@ -31,13 +31,13 @@
       };
     },
 
-    getInitialState() {
+    getInitialState: function() {
       return {
         currentState: this.props.state
       };
     },
 
-    render() {
+    render: function() {
       return (
         React.createElement("div", {className: this.props.classNamespace + "container " + this.state.currentState,
           onClick: this.props.onClick},
@@ -65,7 +65,7 @@
       );
     },
 
-    getStateClass() {
+    getStateClass: function() {
       var className = "workout-progress";
       if (this.props.insightIndex >= this.props.insights.items.length) {
         className += " complete";
@@ -75,15 +75,15 @@
       return className;
     },
 
-    loading() {
+    loading: function() {
       this.setState({currentState: 'loading'});
     },
 
-    notLoading() {
+    notLoading: function() {
       this.setState({currentState: ''});
     },
 
-    success(callback) {
+    success: function(callback) {
       this.setState({currentState: 'success'});
       this._timeout = setTimeout(function() {
         callback = callback || this.props.onSuccess;
@@ -94,7 +94,7 @@
       }.bind(this), this.props.durationSuccess);
     },
 
-    error(callback) {
+    error: function(callback) {
       this.setState({currentState: 'error'});
       this._timeout = setTimeout(function() {
         callback = callback || this.props.onError;
@@ -105,7 +105,7 @@
       }.bind(this), this.props.durationError);
     },
 
-    componentWillReceiveProps(nextProps) {
+    componentWillReceiveProps: function(nextProps) {
       switch(nextProps.state) {
         case 'success':
           this.success();
@@ -124,7 +124,7 @@
       }
     },
 
-    componentWillUnmount() {
+    componentWillUnmount: function() {
       clearTimeout(this._timeout);
     }
   });
