@@ -1,6 +1,6 @@
 {
   "name": "react-progress-button",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Simple react.js component for a inline progress indicator",
   "main": "react-progress-button.js",
   "dependencies": {
