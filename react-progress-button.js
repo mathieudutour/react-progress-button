@@ -14,7 +14,7 @@
       classNamespace: React.PropTypes.string,
       durationError: React.PropTypes.number,
       durationSuccess: React.PropTypes.number,
-      for: React.PropTypes.string,
+      form: React.PropTypes.string,
       onClick: React.PropTypes.func,
       onError: React.PropTypes.func,
       onSuccess: React.PropTypes.func,
@@ -42,7 +42,7 @@
       return (
         React.createElement("div", {className: this.props.classNamespace + "container " + this.state.currentState,
           onClick: this.props.onClick},
-          React.createElement("button", {type: this.props.type, for: this.props.for,
+          React.createElement("button", {type: this.props.type, for: this.props.form,
             className: this.props.classNamespace + "button"},
             React.createElement("span", null, this.props.children),
             React.createElement("svg", {className: this.props.classNamespace + "progress-circle",
