@@ -42,7 +42,7 @@
       return (
         React.createElement("div", {className: this.props.classNamespace + "container " + this.state.currentState,
           onClick: this.props.onClick},
-          React.createElement("button", {type: this.props.type, for: this.props.form,
+          React.createElement("button", {type: this.props.type, form: this.props.form,
             className: this.props.classNamespace + "button"},
             React.createElement("span", null, this.props.children),
             React.createElement("svg", {className: this.props.classNamespace + "progress-circle",
