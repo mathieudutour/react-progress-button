@@ -27,14 +27,13 @@
         classNamespace: 'pb-',
         durationError: 1200,
         durationSuccess: 500,
-        state: '',
         onClick: function() {}
       };
     },
 
     getInitialState: function() {
       return {
-        currentState: this.props.state
+        currentState: this.props.state || ''
       };
     },
 
