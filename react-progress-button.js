@@ -83,14 +83,16 @@
       this.setState({currentState: ''});
     },
 
-    success: function(callback) {
+    success: function(callback, remove) {
       this.setState({currentState: 'success'});
       this._timeout = setTimeout(function() {
         callback = callback || this.props.onSuccess;
         if (callback && typeof callback === "function") {
           callback();
+          if (remove) { this.setState({currentState: ''}); }
+        } else {
+          this.setState({currentState: ''});
         }
-        this.setState({currentState: ''});
       }.bind(this), this.props.durationSuccess);
     },
 

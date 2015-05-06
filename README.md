@@ -93,7 +93,7 @@ Put the button in the loading state.
 
 Put the button in the normal state.
 
-##### success([callback])
+##### success([callback, goBackToNormal])
 
 Put the button in the success state. Call the callback or the onSuccess prop when going back to the normal state.
 
