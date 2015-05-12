@@ -6,12 +6,6 @@
   "dependencies": {
     "react": "^0.12.0"
   },
-  "devDependencies": {
-    "jsdom": "^3.0.2",
-    "coveralls": "^2.11.2",
-    "mocha": "^2.1.0",
-    "istanbul": "^0.3.5"
-  },
   "scripts": {},
   "repository": {
     "type": "git",
