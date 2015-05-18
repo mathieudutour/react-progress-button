@@ -4,7 +4,7 @@
     "react-progress-button.js",
     "react-progress-button.css"
   ],
-  "version": "0.1.8",
+  "version": "0.1.9",
   "homepage": "https://github.com/mathieudutour/react-progress-button",
   "description": "Simple react.js component for a inline progress indicator",
   "keywords": [
