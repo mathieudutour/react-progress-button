@@ -65,16 +65,6 @@
       );
     },
 
-    getStateClass: function() {
-      var className = "workout-progress";
-      if (this.props.insightIndex >= this.props.insights.items.length) {
-        className += " complete";
-      } else {
-        className += " not-complete";
-      }
-      return className;
-    },
-
     loading: function() {
       this.setState({currentState: 'loading'});
     },
