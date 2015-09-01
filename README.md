@@ -83,6 +83,7 @@ Function to call when going back to the normal state after a success
 State of the button if you do not want to use the functions. Can be '', 'loading', 'success' or 'error'.
 
 
+
 ### Methods
 
 ##### loading()
@@ -93,7 +94,7 @@ Put the button in the loading state.
 
 Put the button in the normal state.
 
-##### success([callback, goBackToNormal])
+##### success([callback, dontGoBackToNormal])
 
 Put the button in the success state. Call the callback or the onSuccess prop when going back to the normal state.
 
