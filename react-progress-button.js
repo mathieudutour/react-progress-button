@@ -19,7 +19,8 @@
       onError: React.PropTypes.func,
       onSuccess: React.PropTypes.func,
       state: React.PropTypes.string,
-      type: React.PropTypes.string
+      type: React.PropTypes.string,
+      shouldAllowClickOnLoading: React.PropTypes.bool,
     },
 
     getDefaultProps: function() {
@@ -27,7 +28,10 @@
         classNamespace: 'pb-',
         durationError: 1200,
         durationSuccess: 500,
-        onClick: function() {}
+        onClick: function() {},
+        onError: function() {},
+        onSuccess: function() {},
+        shouldAllowClickOnLoading: false,
       };
     },
 
@@ -40,7 +44,7 @@
     render: function() {
       return (
         React.createElement("div", {className: this.props.classNamespace + "container " + this.state.currentState,
-          onClick: this.props.onClick},
+          onClick: this.handleClick},
           React.createElement("button", {type: this.props.type, form: this.props.form,
             className: this.props.classNamespace + "button"},
             React.createElement("span", null, this.props.children),
@@ -65,6 +69,12 @@
       );
     },
 
+    handleClick: function(e) {
+      if (shouldAllowClickOnLoading || this.state.currentState !== 'loading') {
+        this.props.onClick(e);
+      }
+    },
+
     loading: function() {
       this.setState({currentState: 'loading'});
     },
@@ -73,16 +83,13 @@
       this.setState({currentState: ''});
     },
 
-    success: function(callback, remove) {
+    success: function(callback, dontRemove) {
       this.setState({currentState: 'success'});
       this._timeout = setTimeout(function() {
         callback = callback || this.props.onSuccess;
-        if (callback && typeof callback === "function") {
-          callback();
-          if (remove) { this.setState({currentState: ''}); }
-        } else {
-          this.setState({currentState: ''});
-        }
+        callback();
+        if (dontRemove === true) { return; }
+        this.setState({currentState: ''});
       }.bind(this), this.props.durationSuccess);
     },
 
@@ -90,9 +97,7 @@
       this.setState({currentState: 'error'});
       this._timeout = setTimeout(function() {
         callback = callback || this.props.onError;
-        if (callback && typeof callback === "function") {
-          callback();
-        }
+        callback();
         this.setState({currentState: ''});
       }.bind(this), this.props.durationError);
     },
