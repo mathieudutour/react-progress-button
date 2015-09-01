@@ -72,6 +72,8 @@
     handleClick: function(e) {
       if (shouldAllowClickOnLoading || this.state.currentState !== 'loading') {
         this.props.onClick(e);
+      } else {
+        e.preventDefault();
       }
     },
 
