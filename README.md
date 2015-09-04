@@ -35,7 +35,7 @@ var App = React.createClass({
       </div>
     );
   },
-  
+
   handleClick() {
     this.refs.button.loading();
     //make asynchronious call
@@ -80,7 +80,7 @@ Function to call when going back to the normal state after a success
 
 ##### state
 
-State of the button if you do not want to use the functions. Can be '', 'loading', 'success' or 'error'.
+State of the button if you do not want to use the functions. Can be `''`, `loading`, `success`, `error` or `disabled`.
 
 ##### type
 
@@ -100,7 +100,11 @@ Wether click event should bubble when in loading state
 
 Put the button in the loading state.
 
-##### notLoading()
+##### disable()
+
+Put the button in the disabled state.
+
+##### notLoading(), enable()
 
 Put the button in the normal state.
 
@@ -119,6 +123,3 @@ Look at [react-progress-button.css](https://github.com/mathieudutour/react-progr
 ---
 
 MIT Licensed
-
-
-

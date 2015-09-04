@@ -48,10 +48,14 @@
   stroke-linecap: round;
   stroke-width: 4;
 }
+.pb-container.disable .pb-button {
+  cursor: not-allowed;
+}
 .pb-container.loading .pb-button {
   width: 54px;
   border-width: 6.5px;
   border-color: #ddd;
+  cursor: wait;
   background-color: transparent;
   padding: 0;
 }

@@ -70,7 +70,10 @@
     },
 
     handleClick: function(e) {
-      if (this.props.shouldAllowClickOnLoading || this.state.currentState !== 'loading') {
+      if ((this.props.shouldAllowClickOnLoading ||
+          this.state.currentState !== 'loading') &&
+          this.state.currentState !== 'disabled'
+      ) {
         this.props.onClick(e);
       } else {
         e.preventDefault();
@@ -83,6 +86,14 @@
 
     notLoading: function() {
       this.setState({currentState: ''});
+    },
+
+    enable: function() {
+      this.setState({currentState: ''});
+    },
+
+    disable: function() {
+      this.setState({currentState: 'disabled'});
     },
 
     success: function(callback, dontRemove) {
@@ -114,6 +125,9 @@
           return;
         case 'loading':
           this.loading();
+          return;
+        case 'disabled':
+          this.disable();
           return;
         case '':
           this.notLoading();
