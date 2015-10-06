@@ -50,7 +50,7 @@ var App = React.createClass({
 
 ### Props
 
-All props are optional.
+All props are optional. All props other than that will be passed to the top element.
 
 ##### classNamespace
 

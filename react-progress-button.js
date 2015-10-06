@@ -8,6 +8,7 @@
   }
 })(this, function (React) {
   "use strict";
+  function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
   var ProgressButton = React.createClass({displayName: "ProgressButton",
     propTypes: {
@@ -42,22 +43,29 @@
     },
 
     render: function() {
+      var className = this.props.className;
+      var classNamespace = this.props.classNamespace;
+      var children = this.props.children;
+      var type = this.props.type;
+      var form = this.props.form;
+
+      var containerProps = _objectWithoutProperties(this.props, ["classNamespace", "children", "type", "form", "durationError", "durationSuccess", "onClick", "onError", "state", "shouldAllowClickOnLoading"]);
+      containerProps.className = classNamespace + "container " + this.state.currentState + ' ' + className;
+      containerProps.onClick = this.handleClick;
       return (
-        React.createElement("div", {className: this.props.classNamespace + "container " + this.state.currentState,
-          onClick: this.handleClick},
-          React.createElement("button", {type: this.props.type, form: this.props.form,
-            className: this.props.classNamespace + "button"},
-            React.createElement("span", null, this.props.children),
-            React.createElement("svg", {className: this.props.classNamespace + "progress-circle",
+        React.createElement("div", containerProps,
+          React.createElement("button", {type: type, form: form, className: classNamespace + "button"},
+            React.createElement("span", null, children),
+            React.createElement("svg", {className: classNamespace + "progress-circle",
               viewBox: "0 0 41 41"},
               React.createElement("path", {d: "M38,20.5 C38,30.1685093 30.1685093,38 20.5,38"})
             ),
-            React.createElement("svg", {className: this.props.classNamespace + "checkmark",
+            React.createElement("svg", {className: classNamespace + "checkmark",
               viewBox: "0 0 70 70"},
               React.createElement("path", {d: "m31.5,46.5l15.3,-23.2"}),
               React.createElement("path", {d: "m31.5,46.5l-8.5,-7.1"})
             ),
-            React.createElement("svg", {className: this.props.classNamespace + "cross",
+            React.createElement("svg", {className: classNamespace + "cross",
               viewBox: "0 0 70 70"},
               React.createElement("path", {d: "m35,35l-9.3,-9.3"}),
               React.createElement("path", {d: "m35,35l9.3,9.3"}),
