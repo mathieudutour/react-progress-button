@@ -82,7 +82,12 @@
           this.state.currentState !== 'loading') &&
           this.state.currentState !== 'disabled'
       ) {
-        this.props.onClick(e);
+        var ret = this.props.onClick(e);
+        if (ret.then && ret.catch) {
+          this.loading();
+          ret.then(this.success);
+          ret.catch(this.error);
+        }
       } else {
         e.preventDefault();
       }
@@ -108,7 +113,7 @@
       this.setState({currentState: 'success'});
       this._timeout = setTimeout(function() {
         callback = callback || this.props.onSuccess;
-        callback();
+        if (typeof callback === 'function') { callback(); }
         if (dontRemove === true) { return; }
         this.setState({currentState: ''});
       }.bind(this), this.props.durationSuccess);
@@ -118,7 +123,7 @@
       this.setState({currentState: 'error'});
       this._timeout = setTimeout(function() {
         callback = callback || this.props.onError;
-        callback();
+        if (typeof callback === 'function') { callback(); }
         this.setState({currentState: ''});
       }.bind(this), this.props.durationError);
     },
