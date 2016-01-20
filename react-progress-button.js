@@ -85,8 +85,12 @@
         var ret = this.props.onClick(e);
         if (ret.then && ret.catch) {
           this.loading();
-          ret.then(this.success);
-          ret.catch(this.error);
+          ret.then(function() {
+            this.success();
+          }.bind(this));
+          ret.catch(function() {
+            this.error();
+          }.bind(this));
         }
       } else {
         e.preventDefault();
