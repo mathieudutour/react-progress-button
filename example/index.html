@@ -34,10 +34,16 @@
     var ButtonSuccessContainer = React.createClass({
       displayName: "ButtonSuccessContainer",
 
+      getInitialState() {
+        return {
+          buttonState: ''
+        };
+      },
+
       render() {
         return (
           React.createElement("div", null,
-            React.createElement(ProgressButton, {ref: "button", onClick: this.handleClick},
+            React.createElement(ProgressButton, {state: this.state.buttonState, onClick: this.handleClick},
               "Go!"
             )
           )
@@ -45,20 +51,26 @@
       },
 
       handleClick() {
-        this.refs.button.loading();
-        //make asynchronious call
+        this.setState({buttonState: 'loading'});
+        // make asynchronous call
         setTimeout(function() {
-          this.refs.button.success();
+          this.setState({buttonState: 'success'});
         }.bind(this), 3000);
       }
     });
     var ButtonErrorContainer = React.createClass({
       displayName: "ButtonErrorContainer",
 
+      getInitialState() {
+        return {
+          buttonState: ''
+        };
+      },
+
       render() {
         return (
           React.createElement("div", null,
-            React.createElement(ProgressButton, {ref: "buttonError", onClick: this.handleClick},
+            React.createElement(ProgressButton, {state: this.state.buttonState, onClick: this.handleClick},
               "Go!"
             )
           )
@@ -66,10 +78,10 @@
       },
 
       handleClick() {
-        this.refs.buttonError.loading();
-        //make asynchronious call
+        this.setState({buttonState: 'loading'});
+        // make asynchronous call
         setTimeout(function() {
-          this.refs.buttonError.error();
+          this.setState({buttonState: 'success'});
         }.bind(this), 3000);
       }
     });
