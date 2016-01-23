@@ -20,7 +20,7 @@ bower install react-progress-button --save
 
 ## Example
 
-Controlled usage:
+### Controlled usage:
 
 ```javascript
 var ProgressButton = require('react-progress-button');
@@ -38,13 +38,46 @@ var App = React.createClass({
 
   handleClick() {
     this.refs.button.loading();
-    //make asynchronious call
+    // make asynchronous call
     setTimeout(function() {
       this.refs.button.success();
     }.bind(this), 3000);
   }
 });
 ```
+
+[Source](https://github.com/mathieudutour/react-progress-button/blob/master/example/index.html)
+
+### Using Promises:
+
+If the function passed in via the `onClick` prop return a Promise, 
+the component will automatically transition to its success or error 
+states based on the outcome of the Promise without the need for
+external manipulation of state using a ref.
+
+```javascript
+var ProgressButton = require('react-progress-button');
+
+var App = React.createClass({
+  render() {
+    return (
+      <div>
+        <ProgressButton onClick={this.handleClick}>
+          Go!
+        </ProgressButton>
+      </div>
+    );
+  },
+
+  handleClick() {
+    return new Promise(function(resolve, reject) {
+      setTimeout(resolve, 3000);
+    })
+  }
+});
+```
+
+[Source](https://github.com/mathieudutour/react-progress-button/blob/master/example/index-promises.html)
 
 ## API
 
@@ -68,7 +101,9 @@ default is 500
 
 ##### onClick
 
-Function to call onClick on the button
+Function to call when the button is clicked; if it returns a Promise
+then the component will transition to the success/error state based on 
+the outcome of the Promise
 
 ##### onError
 
