@@ -83,22 +83,23 @@
           this.state.currentState !== 'disabled'
       ) {
         var ret = this.props.onClick(e);
-        if (ret.then && ret.catch) {
-          this.loading();
-          ret.then(function() {
-            this.success();
-          }.bind(this));
-          ret.catch(function() {
-            this.error();
-          }.bind(this));
-        }
+        this.loading(ret);
       } else {
         e.preventDefault();
       }
     },
 
-    loading: function() {
+    loading: function(promise) {
       this.setState({currentState: 'loading'});
+      if (promise && promise.then && promise.catch) {
+        promise
+          .then(function() {
+            this.success();
+          }.bind(this))
+          .catch(function() {
+            this.error();
+          }.bind(this));
+      }
     },
 
     notLoading: function() {

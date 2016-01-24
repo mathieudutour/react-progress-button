@@ -56,7 +56,8 @@ var App = React.createClass({
 
 ### Using Promises:
 
-If the function passed in via the `onClick` prop return a Promise,
+If the function passed in via the `onClick` prop return a Promise or if a promise
+is passed as an argument of the `loading` method,
 the component will automatically transition to its success or error
 states based on the outcome of the Promise without the need for
 external manipulation of state using a ref.
