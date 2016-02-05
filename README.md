@@ -3,7 +3,7 @@
 [![build status](https://img.shields.io/travis/mathieudutour/react-progress-button/master.svg?style=flat-square)](https://travis-ci.org/mathieudutour/react-progress-button)
 [![npm version](https://img.shields.io/npm/v/react-progress-button.svg?style=flat-square)](https://www.npmjs.com/package/react-progress-button)
 [![Dependency Status](https://david-dm.org/mathieudutour/react-progress-button.svg)](https://david-dm.org/mathieudutour/react-progress-button)
-[![devDependency Status](https://david-dm.org/mathieudutour/react-progress-button/dev-status.svg)](https://david-dm.org/mathieudutour/mathieudutour/react-progress-button#info=devDependencies)
+[![devDependency Status](https://david-dm.org/mathieudutour/react-progress-button/dev-status.svg)](https://david-dm.org/mathieudutour/react-progress-button#info=devDependencies)
 
 > Simple [React](http://facebook.github.io/react/index.html) component for a circular Progress Button.
 
