@@ -1,5 +1,10 @@
 # react-progress-button
 
+[![build status](https://img.shields.io/travis/mathieudutour/react-progress-button/master.svg?style=flat-square)](https://travis-ci.org/mathieudutour/react-progress-button)
+[![npm version](https://img.shields.io/npm/v/react-progress-button.svg?style=flat-square)](https://www.npmjs.com/package/react-progress-button)
+[![Dependency Status](https://david-dm.org/mathieudutour/react-progress-button.svg)](https://david-dm.org/mathieudutour/react-progress-button)
+[![devDependency Status](https://david-dm.org/mathieudutour/react-progress-button/dev-status.svg)](https://david-dm.org/mathieudutour/mathieudutour/react-progress-button#info=devDependencies)
+
 > Simple [React](http://facebook.github.io/react/index.html) component for a circular Progress Button.
 
 ### [Demo](https://mathieudutour.github.io/react-progress-button)
@@ -12,44 +17,38 @@
 npm install react-progress-button --save
 ```
 
-or
-
-```bash
-bower install react-progress-button --save
-```
-
 ## Example
 
 ### Controlled usage:
 
 ```javascript
-var ProgressButton = require('react-progress-button');
+import ProgressButton from 'react-progress-button'
 
-var App = React.createClass({
-  getInitialState() {
+const App = React.createClass({
+  getInitialState () {
     return {
       buttonState: ''
-    };
+    }
   },
 
-  render() {
+  render () {
     return (
       <div>
         <ProgressButton onClick={this.handleClick} state={this.state.buttonState}>
           Go!
         </ProgressButton>
       </div>
-    );
+    )
   },
 
-  handleClick() {
-    this.setState({buttonState: 'loading'});
+  handleClick () {
+    this.setState({buttonState: 'loading'})
     // make asynchronous call
     setTimeout(function() {
-      this.setState({buttonState: 'success'});
-    }.bind(this), 3000);
+      this.setState({buttonState: 'success'})
+    }.bind(this), 3000)
   }
-});
+})
 ```
 
 [Source](https://github.com/mathieudutour/react-progress-button/blob/master/example/index.html)
@@ -63,22 +62,22 @@ states based on the outcome of the Promise without the need for
 external manipulation of state using a ref.
 
 ```javascript
-var ProgressButton = require('react-progress-button');
+import ProgressButton from 'react-progress-button'
 
-var App = React.createClass({
-  render() {
+const App = React.createClass({
+  render () {
     return (
       <div>
         <ProgressButton onClick={this.handleClick}>
           Go!
         </ProgressButton>
       </div>
-    );
+    )
   },
 
   handleClick() {
     return new Promise(function(resolve, reject) {
-      setTimeout(resolve, 3000);
+      setTimeout(resolve, 3000)
     })
   }
 });
@@ -162,6 +161,6 @@ Put the button in the error state. Call the callback or the onSuccess prop when 
 
 Look at [react-progress-button.css](https://github.com/mathieudutour/react-progress-button/blob/master/react-progress-button.css) for an idea on how to style this component.
 
----
+## License
 
-MIT Licensed
+  MIT

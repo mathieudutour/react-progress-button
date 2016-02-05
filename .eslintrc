@@ -1,0 +1,14 @@
+{
+  "extends": "standard",
+  "parser": "babel-eslint",
+  "env": {
+    "mocha": true,
+    "node": true
+  },
+  "globals": {
+    "expect": true
+  },
+  "rules": {
+    "no-unused-expressions": 0
+  }
+}
