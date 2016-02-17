@@ -48,7 +48,7 @@
   stroke-linecap: round;
   stroke-width: 4;
 }
-.pb-container.disable .pb-button {
+.pb-container.disabled .pb-button {
   cursor: not-allowed;
 }
 .pb-container.loading .pb-button {
