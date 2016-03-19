@@ -133,7 +133,7 @@ Id of the form to submit (useful if the button is not directly inside the form).
 
 ##### shouldAllowClickOnLoading
 
-Wether click event should bubble when in loading state
+Whether click event should bubble when in loading state
 
 ### Methods
 
