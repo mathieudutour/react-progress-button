@@ -31,7 +31,7 @@
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "sinon": "^1.17.3",
-    "webpack": "^1.12.13"
+    "webpack": "^1.12.15"
   },
   "scripts": {
     "prepublish": "make clean build"
