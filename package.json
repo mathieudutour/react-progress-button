@@ -6,7 +6,8 @@
   "jsnext:main": "src/index.js",
   "files": [
     "lib",
-    "src"
+    "src",
+    "react-progress-button.css"
   ],
   "devDependencies": {
     "babel": "^6.5.1",
