@@ -68,7 +68,7 @@ const ProgressButton = React.createClass({
   },
 
   render () {
-    const {className, classNamespace, children, type, form, durationError, durationSuccess, onClick, onError, state, shouldAllowClickOnLoading, ...containerProps} = this.props
+    const {className, classNamespace, children, type, form, durationError, durationSuccess, onClick, onError, state, shouldAllowClickOnLoading, ...containerProps} = this.props // eslint-disable-line no-unused-vars
 
     containerProps.className = classNamespace + 'container ' + this.state.currentState + ' ' + className
     containerProps.onClick = this.handleClick
@@ -76,18 +76,18 @@ const ProgressButton = React.createClass({
       <div {...containerProps}>
         <button type={type} form={form} className={classNamespace + 'button'}>
           <span>{children}</span>
-          <svg className={classNamespace + 'progress-circle'} viewBox="0 0 41 41">
-            <path d="M38,20.5 C38,30.1685093 30.1685093,38 20.5,38" />
+          <svg className={classNamespace + 'progress-circle'} viewBox='0 0 41 41'>
+            <path d='M38,20.5 C38,30.1685093 30.1685093,38 20.5,38' />
           </svg>
-          <svg className={classNamespace + 'checkmark'} viewBox="0 0 70 70">
-            <path d="m31.5,46.5l15.3,-23.2" />
-            <path d="m31.5,46.5l-8.5,-7.1" />
+          <svg className={classNamespace + 'checkmark'} viewBox='0 0 70 70'>
+            <path d='m31.5,46.5l15.3,-23.2' />
+            <path d='m31.5,46.5l-8.5,-7.1' />
           </svg>
-          <svg className={classNamespace + 'cross'} viewBox="0 0 70 70">
-            <path d="m35,35l-9.3,-9.3" />
-            <path d="m35,35l9.3,9.3" />
-            <path d="m35,35l-9.3,9.3" />
-            <path d="m35,35l9.3,-9.3" />
+          <svg className={classNamespace + 'cross'} viewBox='0 0 70 70'>
+            <path d='m35,35l-9.3,-9.3' />
+            <path d='m35,35l9.3,9.3' />
+            <path d='m35,35l-9.3,9.3' />
+            <path d='m35,35l9.3,-9.3' />
           </svg>
         </button>
       </div>
