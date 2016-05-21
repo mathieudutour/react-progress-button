@@ -134,19 +134,18 @@ const ProgressButton = React.createClass({
   success (callback, dontRemove) {
     this.setState({currentState: STATE.SUCCESS})
     this._timeout = setTimeout(() => {
+      if (!dontRemove) { this.setState({currentState: STATE.NOTHING}) }
       callback = callback || this.props.onSuccess
       if (typeof callback === 'function') { callback() }
-      if (dontRemove === true) { return }
-      this.setState({currentState: STATE.NOTHING})
     }, this.props.durationSuccess)
   },
 
   error (callback) {
     this.setState({currentState: STATE.ERROR})
     this._timeout = setTimeout(() => {
+      this.setState({currentState: STATE.NOTHING})
       callback = callback || this.props.onError
       if (typeof callback === 'function') { callback() }
-      this.setState({currentState: STATE.NOTHING})
     }, this.props.durationError)
   }
 })

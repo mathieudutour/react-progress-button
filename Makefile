@@ -10,6 +10,9 @@ clean:
 	rm -rf lib && rm -rf example/lib && rm -f example/app.bundle.js && rm -f example/app.promise.bundle.js
 
 lint:
-	$(BIN)/eslint src && $(BIN)/eslint tests
+	$(BIN)/eslint src
+
+test:
+	echo "TODO write test"
 
 PHONY: build clean lint
