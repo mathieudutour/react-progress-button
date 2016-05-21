@@ -12,7 +12,7 @@ clean:
 lint:
 	$(BIN)/eslint src
 
-test:
+test: lint
 	echo "TODO write test"
 
 PHONY: build clean lint
