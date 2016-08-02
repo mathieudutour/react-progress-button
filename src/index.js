@@ -68,7 +68,21 @@ const ProgressButton = React.createClass({
   },
 
   render () {
-    const {className, classNamespace, children, type, form, durationError, durationSuccess, onClick, onError, state, shouldAllowClickOnLoading, ...containerProps} = this.props // eslint-disable-line no-unused-vars
+    const {
+      className,
+      classNamespace,
+      children,
+      type,
+      form,
+      durationError, // eslint-disable-line no-unused-vars
+      durationSuccess, // eslint-disable-line no-unused-vars
+      onClick, // eslint-disable-line no-unused-vars
+      onError, // eslint-disable-line no-unused-vars
+      onSuccess, // eslint-disable-line no-unused-vars
+      state, // eslint-disable-line no-unused-vars
+      shouldAllowClickOnLoading, // eslint-disable-line no-unused-vars
+      ...containerProps
+    } = this.props
 
     containerProps.className = classNamespace + 'container ' + this.state.currentState + ' ' + className
     containerProps.onClick = this.handleClick
