@@ -21,7 +21,7 @@
     "babel-register": "^6.5.1",
     "chai": "^3.5.0",
     "chai-as-promised": "^5.2.0",
-    "eslint": "^3.2.2",
+    "eslint": "^3.9.1",
     "eslint-config-standard": "^5.1.0",
     "eslint-plugin-promise": "^2.0.0",
     "eslint-plugin-standard": "^2.0.0",
