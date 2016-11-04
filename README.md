@@ -155,7 +155,7 @@ Put the button in the success state. Call the callback or the onSuccess prop whe
 
 ##### error([callback])
 
-Put the button in the error state. Call the callback or the onSuccess prop when going back to the normal state.
+Put the button in the error state. Call the callback or the onError prop when going back to the normal state.
 
 ## Styles
 
