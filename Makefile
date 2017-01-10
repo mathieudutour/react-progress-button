@@ -10,7 +10,7 @@ clean:
 	rm -rf lib && rm -rf example/lib && rm -f example/app.bundle.js && rm -f example/app.promise.bundle.js
 
 lint:
-	$(BIN)/eslint src
+	$(BIN)/standard
 
 test: lint
 	echo "TODO write test"
