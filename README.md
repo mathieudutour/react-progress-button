@@ -44,9 +44,9 @@ const App = React.createClass({
   handleClick () {
     this.setState({buttonState: 'loading'})
     // make asynchronous call
-    setTimeout(function() {
+    setTimeout(() => {
       this.setState({buttonState: 'success'})
-    }.bind(this), 3000)
+    }, 3000)
   }
 })
 ```
