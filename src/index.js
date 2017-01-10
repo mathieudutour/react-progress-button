@@ -110,8 +110,8 @@ const ProgressButton = React.createClass({
 
   handleClick (e) {
     if ((this.props.shouldAllowClickOnLoading ||
-        this.state.currentState !== 'loading') &&
-        this.state.currentState !== 'disabled'
+        this.state.currentState !== STATE.LOADING) &&
+        this.state.currentState !== STATE.DISABLED
     ) {
       const ret = this.props.onClick(e)
       this.loading(ret)
@@ -121,7 +121,7 @@ const ProgressButton = React.createClass({
   },
 
   loading (promise) {
-    this.setState({currentState: 'loading'})
+    this.setState({currentState: STATE.LOADING})
     if (promise && promise.then && promise.catch) {
       promise
         .then(() => {
