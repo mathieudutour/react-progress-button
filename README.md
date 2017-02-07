@@ -161,6 +161,16 @@ Put the button in the error state. Call the callback or the onError prop when go
 
 Look at [react-progress-button.css](https://github.com/mathieudutour/react-progress-button/blob/master/react-progress-button.css) for an idea on how to style this component.
 
+If you are using webpack, you'll need to have ```css-loader``` installed and include 
+```
+ {
+   test: /\.css$/,
+   loader: "style!css"
+ }
+ ```
+ 
+ in your webpack config. In your jsx file you can then import the CSS with ```import "../node_modules/react-progress-button/react-progress-button.css";``` although the path depends on how deeply nested your jsx is. If you wish to theme it yourself, copy the CSS to a convenient location and point the import path at the copy, which is part of your repo, unlike the original in ```node_modules```. 
+
 ## License
 
   MIT
