@@ -50,7 +50,7 @@ const ProgressButton = React.createClass({
         this.error()
         return
       case STATE.LOADING:
-        this.loading()
+        this.setState({currentState: STATE.LOADING})
         return
       case STATE.DISABLED:
         this.disable()
