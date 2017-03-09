@@ -50,7 +50,7 @@ const ProgressButton = React.createClass({
         this.error()
         return
       case STATE.LOADING:
-        this.setState({currentState: STATE.LOADING})
+        this.loading()
         return
       case STATE.DISABLED:
         this.disable()
@@ -113,24 +113,28 @@ const ProgressButton = React.createClass({
         this.state.currentState !== STATE.LOADING) &&
         this.state.currentState !== STATE.DISABLED
     ) {
+      this.loading()
       const ret = this.props.onClick(e)
-      this.loading(ret)
+      this.handlePromise(ret)
     } else {
       e.preventDefault()
     }
   },
 
-  loading (promise) {
+  handlePromise (promise) {
     if (promise && promise.then && promise.catch) {
-      this.setState({currentState: STATE.LOADING})
       promise
         .then(() => {
           this.success()
         })
-        .catch(() => {
-          this.error()
+        .catch((err) => {
+          this.error(null, err)
         })
     }
+  },
+
+  loading () {
+    this.setState({currentState: STATE.LOADING})
   },
 
   notLoading () {
@@ -154,12 +158,12 @@ const ProgressButton = React.createClass({
     }, this.props.durationSuccess)
   },
 
-  error (callback) {
+  error (callback, err) {
     this.setState({currentState: STATE.ERROR})
     this._timeout = setTimeout(() => {
       this.setState({currentState: STATE.NOTHING})
       callback = callback || this.props.onError
-      if (typeof callback === 'function') { callback() }
+      if (typeof callback === 'function') { callback(err) }
     }, this.props.durationError)
   }
 })
