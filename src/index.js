@@ -121,8 +121,8 @@ const ProgressButton = React.createClass({
   },
 
   loading (promise) {
-    this.setState({currentState: STATE.LOADING})
     if (promise && promise.then && promise.catch) {
+      this.setState({currentState: STATE.LOADING})
       promise
         .then(() => {
           this.success()
