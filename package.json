@@ -9,6 +9,10 @@
     "src",
     "react-progress-button.css"
   ],
+  "dependencies": {
+    "prop-types": "^15.5.8",
+    "create-react-class": "^15.5.2"
+  },
   "devDependencies": {
     "babel": "^6.5.1",
     "babel-cli": "^6.8.0",
