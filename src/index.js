@@ -13,6 +13,7 @@ export const STATE = {
 const ProgressButton = createReactClass({
   propTypes: {
     classNamespace: PropTypes.string,
+    controlled: PropTypes.bool,
     durationError: PropTypes.number,
     durationSuccess: PropTypes.number,
     form: PropTypes.string,
@@ -27,6 +28,7 @@ const ProgressButton = createReactClass({
   getDefaultProps () {
     return {
       classNamespace: 'pb-',
+      controlled: false,
       durationError: 1200,
       durationSuccess: 500,
       onClick () {},
@@ -83,6 +85,7 @@ const ProgressButton = createReactClass({
       onSuccess, // eslint-disable-line no-unused-vars
       state, // eslint-disable-line no-unused-vars
       shouldAllowClickOnLoading, // eslint-disable-line no-unused-vars
+      controlled, // eslint-disable-line no-unused-vars
       ...containerProps
     } = this.props
 
@@ -111,6 +114,11 @@ const ProgressButton = createReactClass({
   },
 
   handleClick (e) {
+    if (this.props.controlled) {
+      this.props.onClick(e)
+      return true
+    }
+
     if ((this.props.shouldAllowClickOnLoading ||
         this.state.currentState !== STATE.LOADING) &&
         this.state.currentState !== STATE.DISABLED
