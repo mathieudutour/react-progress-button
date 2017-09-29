@@ -93,7 +93,7 @@ const ProgressButton = createReactClass({
     containerProps.onClick = this.handleClick
     return (
       <div {...containerProps}>
-        <button type={type} form={form} className={classNamespace + 'button'}>
+        <button disabled={state === STATE.DISABLED} type={type} form={form} className={classNamespace + 'button'}>
           <span>{children}</span>
           <svg className={classNamespace + 'progress-circle'} viewBox='0 0 41 41'>
             <path d='M38,20.5 C38,30.1685093 30.1685093,38 20.5,38' />

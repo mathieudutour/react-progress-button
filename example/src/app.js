@@ -6,7 +6,8 @@ const App = React.createClass({
   getInitialState () {
     return {
       button1State: STATE.NOTHING,
-      button2State: STATE.NOTHING
+      button2State: STATE.NOTHING,
+      button3State: STATE.DISABLED
     }
   },
 
@@ -21,6 +22,11 @@ const App = React.createClass({
         <div id='button-error'>
           <ProgressButton state={this.state.button2State} onClick={this.handleClick2}>
             Go!
+          </ProgressButton>
+        </div>
+        <div id='button-disabled'>
+          <ProgressButton state={this.state.button3State}>
+            Don't Go!
           </ProgressButton>
         </div>
       </div>
