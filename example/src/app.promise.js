@@ -16,6 +16,11 @@ const App = React.createClass({
             Go!
           </ProgressButton>
         </div>
+        <div id='button-disabled'>
+          <ProgressButton state={this.state.button3State}>
+            Don't Go!
+          </ProgressButton>
+        </div>
       </div>
     )
   },

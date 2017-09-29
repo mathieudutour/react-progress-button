@@ -27,7 +27,7 @@
   "scripts": {
     "prepublish": "make clean build",
     "test": "make test",
-    "build": "make build",
+    "build": "make build"
   },
   "repository": {
     "type": "git",
