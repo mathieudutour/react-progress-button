@@ -1,8 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import ProgressButton, {STATE} from '../../lib/index'
+import createReactClass from 'create-react-class'
 
-const App = React.createClass({
+
+const App = createReactClass({
   getInitialState () {
     return {
       button1State: STATE.NOTHING,
