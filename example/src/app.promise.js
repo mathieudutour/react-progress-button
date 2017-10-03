@@ -1,8 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import ProgressButton from '../../lib/index'
+import createReactClass from 'create-react-class'
 
-const App = React.createClass({
+const App = createReactClass({
   render () {
     return (
       <div>
