@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom'
 import ProgressButton, {STATE} from '../../lib/index'
 import createReactClass from 'create-react-class'
 
-
 const App = createReactClass({
   getInitialState () {
     return {
