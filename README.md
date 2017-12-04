@@ -91,6 +91,10 @@ const App = React.createClass({
 
 All props are optional. All props other than that will be passed to the top element.
 
+##### controlled
+
+`true` if you control the button state (by providing `props.state` and `props.onClick`).`false` to let the button manage its state with Promises.  
+
 ##### classNamespace
 
 Namespace for CSS classes, default is `pb-` i.e CSS classes are `pb-button`.
