@@ -16,12 +16,12 @@ const App = createReactClass({
     return (
       <div>
         <div id='button-success'>
-          <ProgressButton state={this.state.button1State} onClick={this.handleClick1}>
+          <ProgressButton state={this.state.button1State} onClick={this.handleClick1} size="44px" radius="47px" fontSize="12px" theme="#daa521">
             Go!
           </ProgressButton>
         </div>
         <div id='button-error'>
-          <ProgressButton state={this.state.button2State} onClick={this.handleClick2}>
+          <ProgressButton state={this.state.button2State} onClick={this.handleClick2} theme="purple">
             Go!
           </ProgressButton>
         </div>
