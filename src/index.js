@@ -168,10 +168,10 @@ const ProgressButton = createReactClass({
     }, this.props.durationSuccess)
   },
 
-  error (callback, err) {
+  error (callback, dontRemove, err) {
     this.setState({currentState: STATE.ERROR})
     this._timeout = setTimeout(() => {
-      this.setState({currentState: STATE.NOTHING})
+      if (!dontRemove) { this.setState({currentState: STATE.NOTHING}) }
       callback = callback || this.props.onError
       if (typeof callback === 'function') { callback(err) }
     }, this.props.durationError)

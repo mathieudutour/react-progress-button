@@ -157,7 +157,7 @@ Put the button in the normal state.
 
 Put the button in the success state. Call the callback or the onSuccess prop when going back to the normal state.
 
-##### error([callback])
+##### error([callback, dontGoBackToNormal])
 
 Put the button in the error state. Call the callback or the onError prop when going back to the normal state.
 
