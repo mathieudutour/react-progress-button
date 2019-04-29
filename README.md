@@ -156,10 +156,12 @@ Put the button in the normal state.
 ##### success([callback, dontGoBackToNormal])
 
 Put the button in the success state. Call the callback or the onSuccess prop when going back to the normal state.
+Use `dontGoBackToNormal` flag to keep the button in success state (default is `false` so the button goes back to normal state after `durationSuccess`).
 
 ##### error([callback, dontGoBackToNormal])
 
 Put the button in the error state. Call the callback or the onError prop when going back to the normal state.
+Use `dontGoBackToNormal` flag to keep the button in error state (default is `false` so the button goes back to normal state after `durationError`).
 
 ## Styles
 
