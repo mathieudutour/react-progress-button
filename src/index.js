@@ -22,7 +22,8 @@ const ProgressButton = createReactClass({
     onSuccess: PropTypes.func,
     state: PropTypes.oneOf(Object.keys(STATE).map(k => STATE[k])),
     type: PropTypes.string,
-    shouldAllowClickOnLoading: PropTypes.bool
+    shouldAllowClickOnLoading: PropTypes.bool,
+    dontReenableAfterSuccess: PropTypes.bool
   },
 
   getDefaultProps () {
@@ -34,7 +35,8 @@ const ProgressButton = createReactClass({
       onClick () {},
       onError () {},
       onSuccess () {},
-      shouldAllowClickOnLoading: false
+      shouldAllowClickOnLoading: false,
+      dontReenableAfterSuccess: false
     }
   },
 
@@ -48,7 +50,7 @@ const ProgressButton = createReactClass({
     if (nextProps.state === this.props.state) { return }
     switch (nextProps.state) {
       case STATE.SUCCESS:
-        this.success()
+        this.success(null, this.props.dontReenableAfterSuccess)
         return
       case STATE.ERROR:
         this.error()
