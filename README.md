@@ -139,6 +139,10 @@ Id of the form to submit (useful if the button is not directly inside the form).
 
 Whether click event should bubble when in loading state
 
+##### dontReenableAfterSuccess
+
+After the button is put in the `'success'` state, it'll automatically go back to the enabled (`''`) state. Set this prop to `true` if the default state of your button should be something other than `''`. 
+
 ### Methods
 
 ##### loading()
