@@ -139,6 +139,16 @@ Id of the form to submit (useful if the button is not directly inside the form).
 
 Whether click event should bubble when in loading state
 
+##### stayInSuccessState
+
+Keep the button in success state after setting state to "success" or calling `success()` method (regardless of `stayInSuccessState` argument value).
+default is `false`
+
+##### stayInErrorState
+
+Keep the button in error state after setting state to "error" or calling `error()` method (regardless of `stayInErrorState` argument value).
+default is `false`
+
 ### Methods
 
 ##### loading()
@@ -153,13 +163,16 @@ Put the button in the disabled state.
 
 Put the button in the normal state.
 
-##### success([callback, dontGoBackToNormal])
+##### success([callback, stayInSuccessState])
 
 Put the button in the success state. Call the callback or the onSuccess prop when going back to the normal state.
+Use `stayInSuccessState` flag to keep the button in success state (default is `false` so the button goes back to normal state after `durationSuccess`).
 
-##### error([callback])
+##### error([callback, error, stayInErrorState])
 
-Put the button in the error state. Call the callback or the onError prop when going back to the normal state.
+Put the button in the error state. Call the callback or the onError prop (with `error` argument) when going back to the normal state.
+Use `stayInErrorState` flag to keep the button in error state (default is `false` so the button goes back to normal state after `durationError`).
+
 
 ## Styles
 

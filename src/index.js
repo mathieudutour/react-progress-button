@@ -22,7 +22,9 @@ const ProgressButton = createReactClass({
     onSuccess: PropTypes.func,
     state: PropTypes.oneOf(Object.keys(STATE).map(k => STATE[k])),
     type: PropTypes.string,
-    shouldAllowClickOnLoading: PropTypes.bool
+    shouldAllowClickOnLoading: PropTypes.bool,
+    stayInSuccessState: PropTypes.bool,
+    stayInErrorState: PropTypes.bool
   },
 
   getDefaultProps () {
@@ -34,7 +36,9 @@ const ProgressButton = createReactClass({
       onClick () {},
       onError () {},
       onSuccess () {},
-      shouldAllowClickOnLoading: false
+      shouldAllowClickOnLoading: false,
+      stayInSuccessState: false,
+      stayInErrorState: false
     }
   },
 
@@ -86,6 +90,8 @@ const ProgressButton = createReactClass({
       state, // eslint-disable-line no-unused-vars
       shouldAllowClickOnLoading, // eslint-disable-line no-unused-vars
       controlled, // eslint-disable-line no-unused-vars
+      stayInSuccessState, // eslint-disable-line no-unused-vars
+      stayInErrorState, // eslint-disable-line no-unused-vars
       ...containerProps
     } = this.props
 
@@ -159,19 +165,19 @@ const ProgressButton = createReactClass({
     this.setState({currentState: STATE.DISABLED})
   },
 
-  success (callback, dontRemove) {
+  success (callback, stayInSuccessState = false) {
     this.setState({currentState: STATE.SUCCESS})
     this._timeout = setTimeout(() => {
-      if (!dontRemove) { this.setState({currentState: STATE.NOTHING}) }
+      if (!stayInSuccessState || !this.props.stayInSuccessState) { this.setState({currentState: STATE.NOTHING}) }
       callback = callback || this.props.onSuccess
       if (typeof callback === 'function') { callback() }
     }, this.props.durationSuccess)
   },
 
-  error (callback, err) {
+  error (callback, err, stayInErrorState = false) {
     this.setState({currentState: STATE.ERROR})
     this._timeout = setTimeout(() => {
-      this.setState({currentState: STATE.NOTHING})
+      if (!stayInErrorState || !this.props.stayInErrorState) { this.setState({currentState: STATE.NOTHING}) }
       callback = callback || this.props.onError
       if (typeof callback === 'function') { callback(err) }
     }, this.props.durationError)
